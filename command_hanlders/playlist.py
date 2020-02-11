@@ -3,11 +3,12 @@ import os
 import subprocess
 
 from telegram import Update
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, run_async
 
 logger = logging.getLogger(__name__)
 
 
+@run_async
 def send_playlist_songs(update: Update, context: CallbackContext):
     playlist_link = context.args[0]
 
@@ -55,4 +56,3 @@ def send_playlist_songs(update: Update, context: CallbackContext):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text="done"
     )
-
