@@ -43,4 +43,4 @@ def send_songs_from_directory(
             audio=open(f'{directory_path}/{file}', 'rb')
         )
 
-    subprocess.run(['rm', '-r', f'{str(update.effective_chat.id)}'])
+    subprocess.run(['rm', '-r', directory_path])
