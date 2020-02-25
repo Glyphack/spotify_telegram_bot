@@ -1,9 +1,14 @@
 import logging
-import os
-import subprocess
+import uuid
 
 from telegram import Update
 from telegram.ext import CallbackContext, run_async
+
+from command_hanlders.helpers.spotdl import (
+    download_from_list,
+    send_songs_from_directory,
+    create_download_list_from_link
+)
 
 logger = logging.getLogger(__name__)
 
@@ -11,47 +16,16 @@ logger = logging.getLogger(__name__)
 @run_async
 def send_playlist_songs(update: Update, context: CallbackContext):
     playlist_link = context.args[0]
+    download_path = str(uuid.uuid4())
+    list_path = f"{download_path}.txt"
 
     context.bot.send_message(
         chat_id=update.effective_chat.id, text=f"donwloading playlist"
     )
 
-    subprocess.run(
-        [
-            'spotdl',
-            '--playlist',
-            playlist_link,
-            "--write-to",
-            f"{str(update.effective_chat.id)}.txt"
-        ],
-        stdout=subprocess.PIPE
-    )
-
-    proccess = subprocess.Popen(
-        [
-            'spotdl',
-            '--list', f"{str(update.effective_chat.id)}.txt",
-            "-f", f"{str(update.effective_chat.id)}",
-            "--overwrite", "skip"
-        ],
-        stdout=subprocess.PIPE
-    )
-    proccess.wait()
-    context.bot.send_message(
-        chat_id=update.effective_chat.id, text=f"download complete"
-    )
-
-    subprocess.run(['rm', f"{str(update.effective_chat.id)}.txt"])
-
-    directory = os.listdir(f'{str(update.effective_chat.id)}/')
-    for file in directory:
-        result = context.bot.send_audio(
-            chat_id=update.effective_chat.id,
-            audio=open(f'{str(update.effective_chat.id)}/{file}', 'rb')
-        )
-        logger.info(result.audio)
-
-    subprocess.run(['rm', '-r', f'{str(update.effective_chat.id)}'])
+    create_download_list_from_link(playlist_link, "playlist", list_path)
+    download_from_list(list_path, download_path)
+    send_songs_from_directory(download_path, update, context)
 
     context.bot.send_message(
         chat_id=update.effective_chat.id, text="done"
