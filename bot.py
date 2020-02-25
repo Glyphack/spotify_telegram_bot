@@ -24,16 +24,11 @@ def start(update: Update, context: CallbackContext):
     )
 
 
-def echo(update: Update, context: CallbackContext):
-    update.effective_message.reply_text(update.effective_message.text)
-
-
 def error(update: Update, context: CallbackContext, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
 
 
 def main():
-    # Set these variable to the appropriate values
     TOKEN = os.environ.get('TOKEN')
     APP_NAME = os.environ.get('APP_NAME')
 
@@ -50,7 +45,6 @@ def main():
                                   pass_args=True,
                                   pass_job_queue=True,
                                   pass_chat_data=True))
-    dp.add_handler(MessageHandler(Filters.text, echo))
     dp.add_error_handler(error)
 
     updater.start_webhook(listen="0.0.0.0",
