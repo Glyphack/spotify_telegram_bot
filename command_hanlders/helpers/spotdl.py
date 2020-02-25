@@ -8,7 +8,7 @@ from telegram.ext import CallbackContext
 def create_download_list_from_link(link: str, link_type: str, list_path: str):
     subprocess.run(
         [
-            'helpers',
+            'spotdl',
             f'--{link_type}',
             link,
             "--write-to",
@@ -20,7 +20,7 @@ def create_download_list_from_link(link: str, link_type: str, list_path: str):
 def download_from_list(list_path: str, download_path: str):
     process = subprocess.Popen(
         [
-            'helpers',
+            'spotdl',
             '--list', list_path,
             "-f", download_path,
             "--overwrite", "skip"
