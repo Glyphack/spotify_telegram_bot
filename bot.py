@@ -2,10 +2,11 @@ import logging
 import os
 
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, \
-    CallbackContext
+from telegram.ext import (
+    Updater, CommandHandler, CallbackContext
+)
 
-from command_hanlders.playlist import send_playlist_songs
+import command_hanlders
 
 logger = logging.getLogger(__name__)
 
@@ -41,11 +42,29 @@ def main():
     dp = updater.dispatcher
     # Add handlers
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('playlist', send_playlist_songs,
-                                  pass_args=True,
-                                  pass_job_queue=True,
-                                  pass_chat_data=True))
     dp.add_error_handler(error)
+
+    dp.add_handler(CommandHandler(
+        'playlist',
+        command_hanlders.send_playlist_songs,
+        pass_args=True,
+        pass_job_queue=True,
+        pass_chat_data=True)
+    )
+    dp.add_handler(CommandHandler(
+        'song',
+        command_hanlders.send_single_track,
+        pass_args=True,
+        pass_job_queue=True,
+        pass_chat_data=True)
+    )
+    dp.add_handler(CommandHandler(
+        'album',
+        command_hanlders.send_album_songs,
+        pass_args=True,
+        pass_job_queue=True,
+        pass_chat_data=True)
+    )
 
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
