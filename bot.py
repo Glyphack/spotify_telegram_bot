@@ -1,12 +1,9 @@
 import logging
 import os
 
+from command_handlers import send_spotify_songs
 from telegram import Update
-from telegram.ext import (
-    Updater, CommandHandler, CallbackContext
-)
-
-import command_hanlders
+from telegram.ext import CallbackContext, CommandHandler, Updater
 
 logger = logging.getLogger(__name__)
 
@@ -14,14 +11,14 @@ logger = logging.getLogger(__name__)
 def setup_logging():
     logging.basicConfig(
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
+        level=logging.INFO
+    )
 
 
 def start(update: Update, context: CallbackContext):
     update.effective_message.reply_text("شایگاننننننننن")
     context.bot.send_message(
-        chat_id=update.effective_chat.id,
-        text="/playlist [url]"
+        chat_id=update.effective_chat.id, text="/spotify [url]"
     )
 
 
@@ -38,37 +35,26 @@ def main():
 
     # Set up the Updater
 
-    updater = Updater(TOKEN, use_context=True, )
+    updater = Updater(
+        TOKEN,
+        use_context=True,
+    )
     dp = updater.dispatcher
     # Add handlers
     dp.add_handler(CommandHandler('start', start))
     dp.add_error_handler(error)
 
-    dp.add_handler(CommandHandler(
-        'playlist',
-        command_hanlders.send_playlist_songs,
-        pass_args=True,
-        pass_job_queue=True,
-        pass_chat_data=True)
-    )
-    dp.add_handler(CommandHandler(
-        'song',
-        command_hanlders.send_single_track,
-        pass_args=True,
-        pass_job_queue=True,
-        pass_chat_data=True)
-    )
-    dp.add_handler(CommandHandler(
-        'album',
-        command_hanlders.send_album_songs,
-        pass_args=True,
-        pass_job_queue=True,
-        pass_chat_data=True)
+    dp.add_handler(
+        CommandHandler(
+            'spotify',
+            send_spotify_songs.send_spotify_songs,
+            pass_args=True,
+            pass_job_queue=True,
+            pass_chat_data=True
+        )
     )
 
-    updater.start_webhook(listen="0.0.0.0",
-                          port=PORT,
-                          url_path=TOKEN)
+    updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
     updater.bot.set_webhook(f"https://{APP_NAME}.herokuapp.com/{TOKEN}")
     updater.idle()
 
