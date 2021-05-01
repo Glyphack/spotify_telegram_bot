@@ -12,4 +12,8 @@ A telegram bot for downlaoding spotify playlist songs on telegram.
 7. Then go to settings tab on heroku and add two vars to config vars:
   - APP_NAME: name of the app you created on heroku
   - TOKEN: your telegram bot token)
-8. From top right of the page select more options and restart all dynos
+8. install [heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and run the command `heroku stack:set container -a APP_NAME` (APP_NAME is name of the app you choose when creating heroku application) then login to your account for change to happen
+8. In heroku from deploy section scroll down to Manual deploy and press deploy branch for master branch
+
+## Setup everywhere else
+1. use the Dockerfile and you're done
