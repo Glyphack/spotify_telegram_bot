@@ -1,4 +1,4 @@
-FROM jrottenberg/ffmpeg:3.3
+FROM jrottenberg/ffmpeg:4.1
 RUN sudo apt-get update
 RUN sudo apt-get install python python-pip python-dev
 COPY . ./
