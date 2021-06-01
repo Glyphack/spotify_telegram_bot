@@ -29,9 +29,9 @@ pygments==2.8.1; python_version >= "3.6" and python_version < "4.0" \
 python-telegram-bot==13.4.1; python_version >= "3.6" \
     --hash=sha256:4c1fdc3dab192bf1f754ccd0692511976b38e2c6ad75010e30844a19c0193c90 \
     --hash=sha256:467b0f149bf4d0b9b638530c9a887dd0d6e64da1d5603cfe6eee839671ca1496
-pytube==10.7.2; python_version >= "3.6" \
-    --hash=sha256:574260550644a48480637be29bfd339b4ac80f61bab5e0c9916b1e6787d59a46 \
-    --hash=sha256:2f9f467fab07a116bba435e5d7cde706222cacea37c44edcb9734fcfb897d19b
+pytube==10.8.3; python_version >= "3.6" \
+    --hash=sha256:d0b35f70238d7ba078d4f44a5f7dd1544b873101d3f28961d21fc16936b6c575 \
+    --hash=sha256:d8a74143af0db76f9a1917aec7862f7044de3b470c89bb25d6a3eb25d4e51cb5
 pytz==2021.1; python_version >= "3.6" \
     --hash=sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798 \
     --hash=sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da
