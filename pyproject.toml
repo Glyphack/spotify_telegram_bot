@@ -8,7 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 python-telegram-bot = "^13.4.1"
-spotdl = "3.5.0"
+spotdl = "^3.6.1"
 
 [tool.poetry.dev-dependencies]
 
