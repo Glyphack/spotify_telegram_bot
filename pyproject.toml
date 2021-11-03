@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "spotify_download_bot"
+name = "SL_Jana_Spotify_Download_Bot"
 version = "0.1.0"
-description = ""
-authors = ["Shayegan Hooshyari <sh.hooshyari@gmail.com>"]
+description = "Download Spotify Songs on Telegram"
+authors = [<a href="https://t.me/SL_Jana_Team">"@SL_Jana_Team"</a>]
 license = "MIT"
 
 [tool.poetry.dependencies]
