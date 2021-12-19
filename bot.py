@@ -1,11 +1,18 @@
+import argparse
+import html
+import json
 import logging
 import os
+import traceback
 
 from command_handlers import send_spotify_songs
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, Updater
+from telegram.parsemode import ParseMode
 
 logger = logging.getLogger(__name__)
+
+DOWNLOAD_FROM_SPOTIFY_COMMAND_NAME = "spotify"
 
 
 def setup_logging():
@@ -16,37 +23,73 @@ def setup_logging():
 
 
 def start(update: Update, context: CallbackContext):
-    update.effective_message.reply_text("شایگاننننننننن")
+    if update.effective_chat is None:
+        return
     context.bot.send_message(
-        chat_id=update.effective_chat.id, text="/spotify [url]"
+        chat_id=update.effective_chat.id,
+        text=f"/{DOWNLOAD_FROM_SPOTIFY_COMMAND_NAME} [url]"
     )
 
 
-def error(update: Update, context: CallbackContext, error):
-    logger.warning('Update "%s" caused error "%s"', update, error)
+def error_handler(update: object, context: CallbackContext) -> None:
+    """Log the error and send a telegram message to user"""
+
+    # Log the error before we do anything else, so we can see it even if something breaks.
+    logger.error(
+        msg="Exception while handling an update:", exc_info=context.error
+    )
+
+    # traceback.format_exception returns the usual python message about an exception, but as a
+    # list of strings rather than a single string, so we have to join them together.
+    tb_list = traceback.format_exception(
+        None, context.error, context.error.__traceback__
+    )
+    tb_string = ''.join(tb_list)
+
+    # Build the message with some markup and additional information about what happened.
+    # You might need to add some logic to deal with messages longer than the 4096 character limit.
+    update_str = update.to_dict() if isinstance(update,
+                                                Update) else str(update)
+    message = (
+        f'An exception was raised while handling an update\n'
+        f'<pre>update = {html.escape(json.dumps(update_str, indent=2, ensure_ascii=False))}'
+        '</pre>\n\n'
+        f'<pre>context.chat_data = {html.escape(str(context.chat_data))}</pre>\n\n'
+        f'<pre>context.user_data = {html.escape(str(context.user_data))}</pre>\n\n'
+        f'<pre>{html.escape(tb_string)}</pre>'
+    )
+
+    # Finally, send the message
+    context.bot.send_message(
+        chat_id=update.effective_chat.id,
+        text=message,
+        parse_mode=ParseMode.HTML
+    )
 
 
 def main():
-    TOKEN = os.environ.get('TOKEN')
+    parser = argparse.ArgumentParser(
+        description="Start a telegram bot to serve requests"
+    )
+    parser.add_argument('--token', dest="telegram_token", default=None)
+    args = parser.parse_args()
+
+    TOKEN = args.telegram_token or os.environ.get('TOKEN')
     APP_NAME = os.environ.get('APP_NAME')
-
-    # Port is given by Heroku
     PORT = os.environ.get('PORT')
-
-    # Set up the Updater
 
     updater = Updater(
         TOKEN,
         use_context=True,
     )
     dp = updater.dispatcher
-    # Add handlers
+
     dp.add_handler(CommandHandler('start', start))
-    dp.add_error_handler(error)
+    dp.add_error_handler(error_handler)
 
     dp.add_handler(
         CommandHandler(
-            'spotify',
+            DOWNLOAD_FROM_SPOTIFY_COMMAND_NAME,
             send_spotify_songs.send_spotify_songs,
             pass_args=True,
             pass_job_queue=True,
