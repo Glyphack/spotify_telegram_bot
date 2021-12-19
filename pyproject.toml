@@ -6,7 +6,7 @@ authors = ["Shayegan Hooshyari <sh.hooshyari@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "~3.9"
 python-telegram-bot = "^13.4.1"
 spotdl = "^3.6.1"
 
