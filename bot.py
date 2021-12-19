@@ -72,7 +72,7 @@ def main():
         description="Start a telegram bot to serve requests"
     )
     parser.add_argument('--token', dest="telegram_token", default=None)
-    args = parser.parse_args()
+    args = parser.parse_known_args()
 
     TOKEN = args.telegram_token or os.environ.get('TOKEN')
     APP_NAME = os.environ.get('APP_NAME')
