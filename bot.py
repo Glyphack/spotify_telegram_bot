@@ -75,8 +75,10 @@ def main():
     args, _ = parser.parse_known_args()
 
     TOKEN = args.telegram_token or os.environ.get('TOKEN')
-    APP_NAME = os.environ.get('APP_NAME')
-    PORT = os.environ.get('PORT')
+
+    if not TOKEN:
+        logger.error("Token most be set")
+        return
 
     updater = Updater(
         TOKEN,
