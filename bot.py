@@ -71,19 +71,29 @@ def main():
     parser = argparse.ArgumentParser(
         description="Start a telegram bot to serve requests"
     )
-    parser.add_argument(
-        '--token', dest="telegram_token", default=os.getenv("TOKEN")
-    )
-    parser.add_argument('--url', dest="url", default=os.getenv("URL"))
-    parser.add_argument('--port', dest="port", default=os.getenv("PORT"))
+    parser.add_argument('--token', dest="telegram_token", default=None)
+    parser.add_argument('--url', dest="url", default=None)
+    parser.add_argument('--port', dest="port", default=None)
     args, _ = parser.parse_known_args()
 
-    if not args.telegram_token:
+    token = args.telegram_token or os.getenv("TOKEN")
+    url = args.url or os.getenv("URL")
+    port = args.port or os.getenv("PORT", 80)
+
+    if not token:
         logger.error("Token most be set")
         return
 
+    if not url:
+        logger.error("Url most be set")
+        return
+
+    if not port:
+        logger.error("port most be set")
+        return
+
     updater = Updater(
-        args.telegram_token,
+        token,
         use_context=True,
     )
     dp = updater.dispatcher
@@ -103,9 +113,9 @@ def main():
 
     updater.start_webhook(
         listen="0.0.0.0",
-        port=int(args.port),
-        url_path=args.telegram_token,
-        webhook_url=f"{args.url}/{args.telegram_token}"
+        port=int(port),
+        url_path=token,
+        webhook_url=f"{url}/{token}"
     )
     updater.idle()
 
