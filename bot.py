@@ -73,12 +73,12 @@ def main():
     )
     parser.add_argument('--token', dest="telegram_token", default=None)
     parser.add_argument('--url', dest="url", default=None)
-    parser.add_argument('--port', dest="port", default=None)
+    parser.add_argument('--port', dest="port", type=int, default=None)
     args, _ = parser.parse_known_args()
 
     token = args.telegram_token or os.getenv("TOKEN")
     url = args.url or os.getenv("URL")
-    port = args.port or os.getenv("PORT", 80)
+    port = args.port or int(os.environ.get('PORT', 8443))
 
     if not token:
         logger.error("Token most be set")
@@ -117,6 +117,7 @@ def main():
         url_path=token,
         webhook_url=f"{url}/{token}"
     )
+    logger.info(f"Started webhook on {url}/{token}")
     updater.idle()
 
 
