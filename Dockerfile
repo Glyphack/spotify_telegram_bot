@@ -16,6 +16,7 @@ ENV PYTHONUNBUFFERED=1 \
 
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 RUN curl -sSL https://install.python-poetry.org | python3 -
+EXPOSE 8443
 WORKDIR /app
 COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-dev
