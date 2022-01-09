@@ -57,7 +57,7 @@ python-versions = "*"
 
 [[package]]
 name = "charset-normalizer"
-version = "2.0.9"
+version = "2.0.10"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 category = "main"
 optional = false
@@ -111,7 +111,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pygments"
-version = "2.10.0"
+version = "2.11.2"
 description = "Pygments is a syntax highlighting package written in Python."
 category = "main"
 optional = false
@@ -119,7 +119,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "python-telegram-bot"
-version = "13.9"
+version = "13.10"
 description = "We have made you a wrapper you can't refuse"
 category = "main"
 optional = false
@@ -177,7 +177,7 @@ full = ["numpy"]
 
 [[package]]
 name = "requests"
-version = "2.26.0"
+version = "2.27.1"
 description = "Python HTTP for Humans."
 category = "main"
 optional = false
@@ -195,7 +195,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 
 [[package]]
 name = "rich"
-version = "10.16.1"
+version = "11.0.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "main"
 optional = false
@@ -227,7 +227,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "spotdl"
-version = "3.9.1"
+version = "3.9.2"
 description = "Download your Spotify playlists and songs along with album art and metadata"
 category = "main"
 optional = false
@@ -308,7 +308,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "urllib3"
-version = "1.26.7"
+version = "1.26.8"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
@@ -329,7 +329,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "yt-dlp"
-version = "2021.12.1"
+version = "2021.12.27"
 description = "A youtube-dl fork with additional features and patches"
 category = "main"
 optional = false
@@ -342,7 +342,7 @@ websockets = "*"
 
 [[package]]
 name = "ytmusicapi"
-version = "0.19.5"
+version = "0.20.0"
 description = "Unofficial API for YouTube Music"
 category = "main"
 optional = false
@@ -357,7 +357,7 @@ dev = ["pre-commit", "flake8", "yapf", "coverage", "sphinx", "sphinx-rtd-theme"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "8f8bb47510ec28ce18ad637fee37a988dccf1847647c4d4710a183a026fb9ede"
+content-hash = "08d99c9f9da7542f3f1d1690cba07e20b0d8eac322a1991b3c9ceff5e49f95ad"
 
 [metadata.files]
 apscheduler = [
@@ -377,8 +377,8 @@ certifi = [
     {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
 ]
 charset-normalizer = [
-    {file = "charset-normalizer-2.0.9.tar.gz", hash = "sha256:b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"},
-    {file = "charset_normalizer-2.0.9-py3-none-any.whl", hash = "sha256:1eecaa09422db5be9e29d7fc65664e6c33bd06f9ced7838578ba40d58bdf3721"},
+    {file = "charset-normalizer-2.0.10.tar.gz", hash = "sha256:876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"},
+    {file = "charset_normalizer-2.0.10-py3-none-any.whl", hash = "sha256:cb957888737fc0bbcd78e3df769addb41fd1ff8cf950dc9e7ad7793f1bf44455"},
 ]
 colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
@@ -429,12 +429,12 @@ pycryptodomex = [
     {file = "pycryptodomex-3.12.0.zip", hash = "sha256:922e9dac0166e4617e5c7980d2cff6912a6eb5cb5c13e7ece222438650bd7f66"},
 ]
 pygments = [
-    {file = "Pygments-2.10.0-py3-none-any.whl", hash = "sha256:b8e67fe6af78f492b3c4b3e2970c0624cbf08beb1e493b2c99b9fa1b67a20380"},
-    {file = "Pygments-2.10.0.tar.gz", hash = "sha256:f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"},
+    {file = "Pygments-2.11.2-py3-none-any.whl", hash = "sha256:44238f1b60a76d78fc8ca0528ee429702aae011c265fe6a8dd8b63049ae41c65"},
+    {file = "Pygments-2.11.2.tar.gz", hash = "sha256:4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"},
 ]
 python-telegram-bot = [
-    {file = "python-telegram-bot-13.9.tar.gz", hash = "sha256:512d7a84f4bf4e59b7acaf87a38e29c60f65a2717ebf6455b4d66fd058326b1b"},
-    {file = "python_telegram_bot-13.9-py3-none-any.whl", hash = "sha256:a0018979585054f9c8da70198701053705ff1cd2839cc74b2da5371e3ada9ada"},
+    {file = "python-telegram-bot-13.10.tar.gz", hash = "sha256:d2c555431821f4ace0c1b7ce12af41999f01b793b275dee131f1034d08c01e3e"},
+    {file = "python_telegram_bot-13.10-py3-none-any.whl", hash = "sha256:833f39110f5d019b39a6c6fcbabd6ea1627eaaa0a26e618c0be099568672d791"},
 ]
 pytube = [
     {file = "pytube-11.0.2-py3-none-any.whl", hash = "sha256:bf2b350e8e991f82b874928f5f1ba1a733a9848d650b01b08fabdf85eea15356"},
@@ -503,12 +503,12 @@ rapidfuzz = [
     {file = "rapidfuzz-1.9.1.tar.gz", hash = "sha256:bd7a4fe33ba49db3417f0f57a8af02462554f1296dedcf35b026cd3525efef74"},
 ]
 requests = [
-    {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
-    {file = "requests-2.26.0.tar.gz", hash = "sha256:b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"},
+    {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
+    {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
 ]
 rich = [
-    {file = "rich-10.16.1-py3-none-any.whl", hash = "sha256:bbe04dd6ac09e4b00d22cb1051aa127beaf6e16c3d8687b026e96d3fca6aad52"},
-    {file = "rich-10.16.1.tar.gz", hash = "sha256:4949e73de321784ef6664ebbc854ac82b20ff60b2865097b93f3b9b41e30da27"},
+    {file = "rich-11.0.0-py3-none-any.whl", hash = "sha256:d7a8086aa1fa7e817e3bba544eee4fd82047ef59036313147759c11475f0dafd"},
+    {file = "rich-11.0.0.tar.gz", hash = "sha256:c32a8340b21c75931f157466fefe81ae10b92c36a5ea34524dff3767238774a4"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
@@ -519,8 +519,8 @@ soupsieve = [
     {file = "soupsieve-2.3.1.tar.gz", hash = "sha256:b8d49b1cd4f037c7082a9683dfa1801aa2597fb11c3a1155b7a5b94829b4f1f9"},
 ]
 spotdl = [
-    {file = "spotdl-3.9.1-py3-none-any.whl", hash = "sha256:490b8b48c4a4753eb6cc9416014c9f99574652d7007eaec86bba8b0685466139"},
-    {file = "spotdl-3.9.1.tar.gz", hash = "sha256:c6a2a5805c0412db9dac436f09be8b42c9cd0f2617425d762152cd9cbb947452"},
+    {file = "spotdl-3.9.2-py3-none-any.whl", hash = "sha256:e94a51ac2bce7cb387a4bf890cfb0960d27fc69a4a5d1036f4c5c45395840129"},
+    {file = "spotdl-3.9.2.tar.gz", hash = "sha256:9d1ec8c90e68e5eb71380082219210bafe18b625a899665b6ac15f9891fbdad4"},
 ]
 spotipy = [
     {file = "spotipy-2.19.0-py2-none-any.whl", hash = "sha256:dd6de229351bb6cf4d9bc169c5e183288da795f5a8265968dd98e95c037f9e7a"},
@@ -583,8 +583,8 @@ unidecode = [
     {file = "Unidecode-1.3.2.tar.gz", hash = "sha256:669898c1528912bcf07f9819dc60df18d057f7528271e31f8ec28cc88ef27504"},
 ]
 urllib3 = [
-    {file = "urllib3-1.26.7-py2.py3-none-any.whl", hash = "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"},
-    {file = "urllib3-1.26.7.tar.gz", hash = "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"},
+    {file = "urllib3-1.26.8-py2.py3-none-any.whl", hash = "sha256:000ca7f471a233c2251c6c7023ee85305721bfdf18621ebff4fd17a8653427ed"},
+    {file = "urllib3-1.26.8.tar.gz", hash = "sha256:0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"},
 ]
 websockets = [
     {file = "websockets-10.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:38db6e2163b021642d0a43200ee2dec8f4980bdbda96db54fde72b283b54cbfc"},
@@ -637,10 +637,10 @@ websockets = [
     {file = "websockets-10.1.tar.gz", hash = "sha256:181d2b25de5a437b36aefedaf006ecb6fa3aa1328ec0236cdde15f32f9d3ff6d"},
 ]
 yt-dlp = [
-    {file = "yt-dlp-2021.12.1.tar.gz", hash = "sha256:58da5b96d4834fe8130c960b9dfd670cd2d0e53b650cd92e5c4381724151b80f"},
-    {file = "yt_dlp-2021.12.1-py2.py3-none-any.whl", hash = "sha256:78bca71906c40a69dcdd9b5a07b736c73579e1b166ebe70c9f93cdcd03e1c757"},
+    {file = "yt-dlp-2021.12.27.tar.gz", hash = "sha256:2244df3759751487e796b23b67216bee98e70832a3a43c2526b0b0e0bbfbcb5b"},
+    {file = "yt_dlp-2021.12.27-py2.py3-none-any.whl", hash = "sha256:bb46898a175d149c9c6bb2846056590d297aa4eafad8487c3e1315d2c6090896"},
 ]
 ytmusicapi = [
-    {file = "ytmusicapi-0.19.5-py3-none-any.whl", hash = "sha256:23ed35df2b7977e3e7662c0ac478864fb23d025ba5de8f2c269cabf2903b8d25"},
-    {file = "ytmusicapi-0.19.5.tar.gz", hash = "sha256:85a65ee5a7f0914f300fcb3696b98726e568e933b709c43fd13b896c73e6aaf5"},
+    {file = "ytmusicapi-0.20.0-py3-none-any.whl", hash = "sha256:abdb90426baa14a7929ec810d65c1df228661b61d580678fc48c087909a9aea2"},
+    {file = "ytmusicapi-0.20.0.tar.gz", hash = "sha256:0ef2ebcad2e9dbc4d5155764996835f5c0b65517ad15c4b1edd9ac3b81d0a95a"},
 ]
