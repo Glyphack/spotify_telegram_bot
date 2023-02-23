@@ -1,5 +1,5 @@
-# Spotify download bot
-A telegram bot for downloading spotify playlist songs on telegram.
+# Spotify telegram bot
+A telegram bot for listening to spotify songs on telegram.
 The bot works by getting list of song names from spotify and find them on youtube.
 
 ## How to setup on heroku
