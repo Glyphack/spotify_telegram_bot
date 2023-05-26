@@ -32,6 +32,18 @@ twisted = ["twisted"]
 zookeeper = ["kazoo"]
 
 [[package]]
+name = "async-timeout"
+version = "4.0.2"
+description = "Timeout context manager for asyncio programs"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
+    {file = "async_timeout-4.0.2-py3-none-any.whl", hash = "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"},
+]
+
+[[package]]
 name = "beautifulsoup4"
 version = "4.10.0"
 description = "Screen-scraping library"
@@ -321,6 +333,25 @@ files = [
 full = ["numpy"]
 
 [[package]]
+name = "redis"
+version = "4.5.5"
+description = "Python client for Redis database and key-value store"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "redis-4.5.5-py3-none-any.whl", hash = "sha256:77929bc7f5dab9adf3acba2d3bb7d7658f1e0c2f1cafe7eb36434e751c471119"},
+    {file = "redis-4.5.5.tar.gz", hash = "sha256:dc87a0bdef6c8bfe1ef1e1c40be7034390c2ae02d92dcd0c7ca1729443899880"},
+]
+
+[package.dependencies]
+async-timeout = {version = ">=4.0.2", markers = "python_full_version <= \"3.11.2\""}
+
+[package.extras]
+hiredis = ["hiredis (>=1.0.0)"]
+ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==20.0.1)", "requests (>=2.26.0)"]
+
+[[package]]
 name = "requests"
 version = "2.27.1"
 description = "Python HTTP for Humans."
@@ -433,18 +464,19 @@ test = ["pyfakefs (>=4.3.0)", "pytest (>=6.0)", "pytest-cov (>=2.10.1)", "pytest
 
 [[package]]
 name = "spotipy"
-version = "2.19.0"
+version = "2.22.1"
 description = "A light weight Python library for the Spotify Web API"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "spotipy-2.19.0-py2-none-any.whl", hash = "sha256:dd6de229351bb6cf4d9bc169c5e183288da795f5a8265968dd98e95c037f9e7a"},
-    {file = "spotipy-2.19.0-py3-none-any.whl", hash = "sha256:766f9ef96d61851d7884c4553f2de2527c3af01df603985f6987543bb28e3ff5"},
-    {file = "spotipy-2.19.0.tar.gz", hash = "sha256:904f6e813dba837758e9510c1bee51d7ca217f169246625a13e693733dc33543"},
+    {file = "spotipy-2.22.1-py2-none-any.whl", hash = "sha256:aa023d8bc606053d95e8961f52293fdd8cd12ef4fad8f829e701bb3d61c48d76"},
+    {file = "spotipy-2.22.1-py3-none-any.whl", hash = "sha256:1dac15ac0aaf5246461a3cb0b3d837bc7af7b78597441289b500a5abac9fe9c4"},
+    {file = "spotipy-2.22.1.tar.gz", hash = "sha256:54680dbf243a2b0cff0e591e1d269692e94265273b52ab90994a661555c04ac7"},
 ]
 
 [package.dependencies]
+redis = ">=3.5.3"
 requests = ">=2.25.0"
 six = ">=1.15.0"
 urllib3 = ">=1.26.0"
